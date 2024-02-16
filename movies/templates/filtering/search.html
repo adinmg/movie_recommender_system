@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Movies{% endblock title %}</h2>
+  <p>Pick a User ID among 1 and 11673</p>
+{% endblock header %}
+
+{% block content %}
+  <form method="post">
+    <div class="form-group">
+        <label for="user_id">User ID</label>
+        <input type="int" name="user_id" id="user_id" value="{{ request.form['user_id'] }}" class="form-control">
+    </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Search" class="submit-btn">
+    </div>
+</form>
+{% endblock content %}

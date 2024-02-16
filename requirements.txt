@@ -1,0 +1,6 @@
+flask
+pandas
+cython
+numpy
+scikit-surprise
+chromadb

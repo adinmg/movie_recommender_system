@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Recommendations for User: {{ user }} {% endblock title %}</h2>
+  <p></p>
+{% endblock header %}
+
+{% block content %}
+
+<h3>Rated Movies</h3>
+<div class="row">
+    {% for movie in rated_movies %}
+        <div class="col-md-4">
+            <div class="card mb-2">
+                {% if movie.poster_path %}
+                    <img class="card-img-top" src="{{ movie.poster_path}}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.title }}</h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+<h3>Recommended Movies</h3>
+<div class="row">
+{% for movie in recommended_movies %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            {% if movie.poster_path %}
+                <img class="card-img-top" src="{{ movie.poster_path}}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">{{ movie.rating }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

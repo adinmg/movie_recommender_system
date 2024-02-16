@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Recommendations - Cold Start{% endblock title %}</h2>
+  <p></p>
+{% endblock header %}
+
+{% block content %}
+
+<div class="row">
+{% for movie in movies %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            {% if movie.poster_path %}
+                <img class="card-img-top" src="{{ movie.poster_path}}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
